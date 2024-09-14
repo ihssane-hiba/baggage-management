@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Parcels</title>
+</head>
+<body>
+    <h1>List of Parcels</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for parcel in parcels %}
+            <tr>
+                <td>{{ parcel.reference }}</td>
+                <td>{{ parcel.description }}</td>
+                <td>{{ parcel.status }}</td>
+                <td>{{ parcel.date_enregistrement }}</td>
+                <td>
+                    <a href="{{ url_for('edit_parcel', id=parcel.id) }}">Edit</a>
+                    <form action="{{ url_for('delete_parcel', id=parcel.id) }}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('form') }}">Add New Parcel</a>
+    <a href="{{ url_for('report_lost') }}">Report Lost Item</a>
+</body>
+</html>

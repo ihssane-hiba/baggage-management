@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Parcel</title>
+</head>
+<body>
+    <h1>Edit Parcel</h1>
+    <form action="{{ url_for('edit_parcel', id=parcel.id) }}" method="post">
+        <label for="reference">Reference:</label>
+        <input type="text" id="reference" name="reference" value="{{ parcel.reference }}" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{ parcel.description }}</textarea>
+        <br>
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" value="{{ parcel.status }}" required>
+        <br>
+        <button type="submit">Update Parcel</button>
+    </form>
+    <a href="{{ url_for('list_parcels') }}">Back to List</a>
+</body>
+</html>

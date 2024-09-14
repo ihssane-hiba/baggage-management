@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Lost Item</title>
+</head>
+<body>
+    <h1>Report Lost Item</h1>
+    <form action="{{ url_for('report_lost') }}" method="post">
+        <label for="reference">Reference:</label>
+        <input type="text" id="reference" name="reference" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+        <button type="submit">Report Lost Item</button>
+    </form>
+    <a href="{{ url_for('list_parcels') }}">Back to List</a>
+</body>
+</html>
