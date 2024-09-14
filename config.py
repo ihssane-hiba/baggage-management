@@ -1,10 +1,14 @@
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from the .env file
+load_dotenv()
 
 class Config:
-    SECRET_KEY = os.getenv('SECRET_KEY', 'your_secret_key')
+    SECRET_KEY = os.getenv('SECRET_KEY', 'default_secret_key')
     
-    # Configuration for both MySQL and PostgreSQL
-    DB_TYPE = os.getenv('DB_TYPE', 'postgres')  # Can be 'postgres' or 'mysql'
+    # Determine the database type ('postgres' or 'mysql')
+    DB_TYPE = os.getenv('DB_TYPE', 'postgres')
     
     # PostgreSQL configuration
     POSTGRES_USER = os.getenv('POSTGRES_USER', 'postgres')
