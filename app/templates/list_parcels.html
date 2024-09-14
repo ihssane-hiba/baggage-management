@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Parcels</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
     <h1>List of Parcels</h1>
@@ -25,8 +56,8 @@
                 <td>{{ parcel.status }}</td>
                 <td>{{ parcel.date_enregistrement }}</td>
                 <td>
-                    <a href="{{ url_for('edit_parcel', id=parcel.id) }}">Edit</a>
-                    <form action="{{ url_for('delete_parcel', id=parcel.id) }}" method="post" style="display:inline;">
+                    <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">Edit</a>
+                    <form action="{{ url_for('parcel.delete_parcel', parcel_id=parcel.id) }}" method="post" style="display:inline;">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
@@ -34,7 +65,7 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{{ url_for('form') }}">Add New Parcel</a>
-    <a href="{{ url_for('report_lost') }}">Report Lost Item</a>
+    <a href="{{ url_for('parcel.new_parcel') }}">Add New Parcel</a>
+    <a href="#">Report Lost Item</a>
 </body>
 </html>
