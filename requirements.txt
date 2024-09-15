@@ -5,3 +5,4 @@ mysql-connector-python
 Werkzeug
 Flask-Mail
 python-dotenv
+pymysql
