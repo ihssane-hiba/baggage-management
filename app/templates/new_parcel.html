@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Colis</title>
+</head>
+<body>
+    <h1>Ajouter un Nouveau Colis</h1>
+    <form action="{{ url_for('post_login_form') }}" method="post">
+        <label for="reference">Référence :</label>
+        <input type="text" id="reference" name="reference" required>
+        <br>
+        <label for="description">Description :</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+        <label for="status">Statut :</label>
+        <input type="text" id="status" name="status" required>
+        <br>
+        <button type="submit">Ajouter Colis</button>
+    </form>
+    <a href="{{ url_for('list_parcels') }}">Retour à la Liste</a>
+</body>
+</html>
