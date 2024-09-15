@@ -4,21 +4,265 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un Colis</title>
+    <style>
+    /* From Uiverse.io by ammarsaa */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 350px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+        position: relative;
+        background-color: #1a1a1a;
+        color: #fff;
+        border: 1px solid #333;
+    }
+
+    .title {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+        color: #00bfff;
+    }
+
+    .title::before,
+    .title::after {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        left: 0px;
+        background-color: #00bfff;
+    }
+
+    .title::after {
+        width: 18px;
+        height: 18px;
+        animation: pulse 1s linear infinite;
+    }
+
+    .message, 
+    .signin {
+        font-size: 14.5px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .signin {
+        text-align: center;
+    }
+
+    .signin a:hover {
+        text-decoration: underline royalblue;
+    }
+
+    .signin a {
+        color: #00bfff;
+    }
+
+    .flex {
+        display: flex;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .form label {
+        position: relative;
+    }
+
+    .form label .input {
+        background-color: #333;
+        color: #fff;
+        width: 100%;
+        padding: 20px 5px 5px 10px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+    }
+
+    .form label .input + span {
+        color: rgba(255, 255, 255, 0.5);
+        position: absolute;
+        left: 10px;
+        top: 0px;
+        font-size: 0.9em;
+        cursor: text;
+        transition: 0.3s ease;
+    }
+
+    .form label .input:placeholder-shown + span {
+        top: 12.5px;
+        font-size: 0.9em;
+    }
+
+    .form label .input:focus + span,
+    .form label .input:valid + span {
+        color: #00bfff;
+        top: 0px;
+        font-size: 0.7em;
+        font-weight: 600;
+    }
+
+    .input {
+        font-size: medium;
+    }
+
+    .submit {
+        border: none;
+        outline: none;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transform: 0.3s ease;
+        background-color: #00bfff;
+    }
+
+    .submit:hover {
+        background-color: #00bfff96;
+    }
+
+    @keyframes pulse {
+        from {
+            transform: scale(0.9);
+            opacity: 1;
+        }
+
+        to {
+            transform: scale(1.8);
+            opacity: 0;
+        }
+    }
+    </style>
 </head>
 <body>
-    <h1>Ajouter un Nouveau Colis</h1>
-    <form action="{{ url_for('post_login_form') }}" method="post">
-        <label for="reference">Référence :</label>
-        <input type="text" id="reference" name="reference" required>
-        <br>
-        <label for="description">Description :</label>
-        <textarea id="description" name="description" required></textarea>
-        <br>
-        <label for="status">Statut :</label>
-        <input type="text" id="status" name="status" required>
-        <br>
-        <button type="submit">Ajouter Colis</button>
-    </form>
-    <a href="{{ url_for('list_parcels') }}">Retour à la Liste</a>
-</body>
-</html>
+
+    <form class="form">
+        <p class="title">Ajouter un Colis</p>
+        <p class="message">Remplissez les informations du colis.</p>
+
+        <!-- Champ pour la référence du colis -->
+        <label>
+            <input class="input" type="text" placeholder="" required>
+            <span>Référence</span>
+        </label>
+
+        <!-- Champ pour la description du colis -->
+        <label>
+            <input class="input" type="text" placeholder="" required>
+            <span>Description</span>
+        </label>
+
+        <!-- Champ pour le statut du colis -->
+        <label>
+            <input class="input" type="text" placeholder="" required>
+            <span>Statut</span>
+        </label>
+
+       
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Bouton Ajouter</title>
+            <style>
+                button {
+                    position: relative;
+                    margin: 0;
+                    padding: 17px 35px;
+                    outline: none;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    background-color: #fff;
+                    border: 1px solid rgba(22, 76, 167, 0.6);
+                    border-radius: 10px;
+                    color: #1d89ff;
+                    font-weight: 400;
+                    font-family: inherit;
+                    z-index: 0;
+                    overflow: hidden;
+                    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+                }
+                button span {
+                    color: #164ca7;
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: 0.7px;
+                }
+                button:hover {
+                    animation: rotate624 0.7s ease-in-out both;
+                }
+                button:hover span {
+                    animation: storm1261 0.7s ease-in-out both;
+                    animation-delay: 0.06s;
+                }
+                @keyframes rotate624 {
+                    0% { transform: rotate(0deg) translate3d(0, 0, 0); }
+                    25% { transform: rotate(3deg) translate3d(0, 0, 0); }
+                    50% { transform: rotate(-3deg) translate3d(0, 0, 0); }
+                    75% { transform: rotate(1deg) translate3d(0, 0, 0); }
+                    100% { transform: rotate(0deg) translate3d(0, 0, 0); }
+                }
+                @keyframes storm1261 {
+                    0% { transform: translate3d(0, 0, 0) translateZ(0); }
+                    25% { transform: translate3d(4px, 0, 0) translateZ(0); }
+                    50% { transform: translate3d(-3px, 0, 0) translateZ(0); }
+                    75% { transform: translate3d(2px, 0, 0) translateZ(0); }
+                    100% { transform: translate3d(0, 0, 0) translateZ(0); }
+                }
+                .btn-shine {
+                    border: 1px solid;
+                    overflow: hidden;
+                    position: relative;
+                }
+                .btn-shine span {
+                    z-index: 20;
+                }
+                .btn-shine:after {
+                    background: #38ef7d;
+                    content: "";
+                    height: 155px;
+                    left: -75px;
+                    opacity: 0.4;
+                    position: absolute;
+                    top: -50px;
+                    transform: rotate(35deg);
+                    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+                    width: 50px;
+                    z-index: -10;
+                }
+                .btn-shine:hover:after {
+                    left: 120%;
+                    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+                }
+            </style>
+        </head>
+        <body>
+        
+            <button class="btn-shine">
+                <span>Ajouter à la Liste</span>
+            </button>
+        
+        </body>
+        </html>
+        
