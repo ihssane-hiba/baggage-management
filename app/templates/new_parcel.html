@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Create a New Parcel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1>Create a New Parcel</h1>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            <article>
+                <h2>New Parcel Form</h2>
+                <form method="POST" action="{{ url_for('parcel.create_parcel') }}">
+                    <div class="fields">
+                        <div class="reference">
+                            <label for="reference">reference</label>
+                            <input type="text" name="reference" id="reference" required />
+                        </div>
+                        <div class="description">
+                            <label for="description">description</label>
+                            <input type="text" name="description" id="description" required />
+                        </div>
+                        <div class="status">
+                            <label for="status">status</label>
+                            <input type="text" name="status" id="status" required />
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Create Parcel" class="primary" /></li>
+                    </ul>
+                </form>
+            </article>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p>&copy; Parcel Management. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
