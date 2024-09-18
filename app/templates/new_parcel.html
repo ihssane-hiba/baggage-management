@@ -46,7 +46,7 @@
             margin-bottom: 5px;
         }
 
-        input, select {
+        input, select, textarea {
             width: 100%;
             padding: 8px;
             font-size: 14px;
@@ -73,7 +73,11 @@
 <body>
     <div class="form-container">
         <h2>Enregistrement de Colis</h2>
-        <form action="#" method="POST">
+        <form action="/submit" method="POST">  <!-- Modifié pour soumettre au backend Flask -->
+            <div class="form-group">
+                <label for="reference">Référence:</label>
+                <input type="text" id="reference" name="reference" required>
+            </div>
             <div class="form-group">
                 <label for="nom">Nom:</label>
                 <input type="text" id="nom" name="nom" required>
@@ -106,6 +110,21 @@
             <div class="form-group">
                 <label for="email">Email Électronique:</label>
                 <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="status">Statut:</label>
+                <select id="status" name="status" required>
+                    <option value="">Sélectionner le statut</option>
+                    <option value="Annulée">Annulée</option>
+                    <option value="Envoyée">Envoyée</option>
+                    <option value="Rapportée">Rapportée</option>
+                    <option value="Retardée">Retardée</option>
+                    <option value="En Attente">En Attente</option>
+                </select>
             </div>
             <div class="form-group">
                 <button type="submit">Soumettre</button>
