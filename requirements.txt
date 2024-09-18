@@ -1,8 +1,1 @@
-Flask
-Flask-SQLAlchemy
-psycopg2  
-mysql-connector-python
-Werkzeug
-Flask-Mail
-python-dotenv
-pymysql
+Commande ECHO d‚sactiv‚e.
