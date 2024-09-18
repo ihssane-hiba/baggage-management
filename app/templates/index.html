@@ -42,14 +42,14 @@
 				<article id="Accueil">
 					<h4 class="major">Bienvenue sur notre plateforme de gestion de colis !</h4>
 					<!-- Correctly reference image using url_for -->
-					<span class="image main"><img src="{{ url_for('static', filename='images/colis.jpeg') }}" alt="" /></span>
+					<span class="image main"><img src="{{ url_for('static', filename='images/colis.jpeg') }}" alt="image" /></span>
 					<p>Développée par Sita en partenariat avec ONDA, notre application simplifie et optimise le processus de gestion des colis à l'aéroport. Que ce soit pour l'enregistrement, le suivi, ou le transfert des colis, nous vous offrons une interface conviviale et sécurisée pour une gestion efficace. Notre solution garantit une traçabilité complète à chaque étape du parcours de vos colis, réduisant les délais et améliorant l'efficacité opérationnelle. Découvrez une nouvelle façon de gérer vos envois avec rapidité et fiabilité. 
 					</article>
 
 				<!-- Work -->
 				<article id="Services">
 					<h3 class="major">Nos Services de Gestion de Colis</h3>
-					<span class="image main"><img src="{{ url_for('static', filename='images/pic02.jpg') }}" alt="" /></span>
+					<span class="image main"><img src="{{ url_for('static', filename='images/ab.jpeg') }}" alt="image" /></span>
 					<p><ul>Notre application, développée par Sita en partenariat avec ONDA, propose une gamme complète de services pour faciliter et améliorer la gestion des colis à l'aéroport. Découvrez comment nous pouvons vous aider à optimiser chaque étape du processus :
 					</ul> 
 					<li>Enregistrement Simplifié des Colis:
@@ -82,12 +82,14 @@ sécurisée et efficace, adaptée aux besoins spécifiques de l'aéroport.</h9><
 				<!-- contact -->
 				<article id="contact">
 					<h2 class="major">Contact us </h2>
-								<span class="image main"><img src="images/plan (1).jpeg" alt="" /></span>
+								<span class="image main"><img src="{{ url_for('static', filename='images/plan (2).jpeg') }}" alt="image" /></span>
 								
 <div class="container px-4 mx-auto">
   <div class="mx-auto">
     <div class="max-w-md mx-auto px-8 py-6 bg-gray-100 rounded-lg shadow-lg">
       <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h2>
+	  <span class="image main"><img src="{{ url_for('static', filename='images/plan (2).jpeg') }}" alt="image" /></span>
+
       <form>
         <div class="mb-4">
           <label class="block text-gray-800 mb-1" for="name">Your Name</label>
