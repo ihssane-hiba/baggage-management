@@ -7,15 +7,16 @@
 </head>
 <body>
     <h1>Report Lost Item</h1>
-    <form action="{{ url_for('report_lost') }}" method="post">
+    <form method="POST" action="{{ url_for('parcel.submit_lost') }}">
         <label for="reference">Reference:</label>
-        <input type="text" id="reference" name="reference" required>
-        <br>
+        <input type="text" name="reference" required>
+        
         <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea>
-        <br>
-        <button type="submit">Report Lost Item</button>
+        <input type="text" name="description" required>
+    
+        <button type="submit">Submit Lost Item</button>
     </form>
+    
     <a href="{{ url_for('list_parcels') }}">Back to List</a>
 </body>
 </html>
