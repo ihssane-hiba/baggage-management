@@ -11,7 +11,7 @@ def list_parcels():
     return render_template('list_parcels.html', parcels=parcels)
 
 # Page d'édition d'un colis
-@parcel_bp.route('/edit_parcel/<int:parcel_id>')
+@parcel_bp.route('/edit_parcel/<int:parcel_id>', methods=['GET'])
 def edit_parcel(parcel_id):
     print(f'Editing parcel with ID {parcel_id}')
     # Récupérer les détails du colis pour les afficher sur la page d'édition (vous devrez implémenter la méthode get_parcel_by_id)
@@ -38,7 +38,6 @@ def create_parcel():
     reference = request.form['reference']
     description = request.form.get('description', '')
     status = request.form['status']
-    date_enregistrement = request.form['date_enregistrement']
     nom = request.form['nom']
     prenom = request.form['prenom']
     type_colis = request.form['type_colis']
@@ -52,7 +51,6 @@ def create_parcel():
         reference=reference,
         description=description,
         status=status,
-        date_enregistrement=date_enregistrement,
         nom=nom,
         prenom=prenom,
         type_colis=type_colis,
@@ -63,7 +61,6 @@ def create_parcel():
     )
 
     flash('Parcel created successfully!')
-<<<<<<< HEAD
     return list_parcels()
 
 @parcel_bp.route('/report_lost')
@@ -73,25 +70,26 @@ def report_lost():
 
 @parcel_bp.route('/submit_lost', methods=['POST'])
 def submit_lost():
+    
+    
     reference = request.form['reference']
+    description = request.form['description']
     
     
     # Assuming there's a method in ParcelService to handle lost items
-    ParcelService.report_lost_item(reference )
+    ParcelService.report_lost_item(reference, description)
     
     flash('Lost item reported successfully!')
     return render_template('report_lost.html')
 
-@parcel_bp.route('/update_parcel/<int:parcel_id>', methods=['POST'])
-def update_parcel(parcel_id):
-    reference = request.form['reference']
+@parcel_bp.route('/update_parcel', methods=['POST'])
+def update_parcel():
+    id = request.form['id']
+    description = request.form['description']
     status = request.form['status']
     
     # Update parcel details in the ParcelService
-    ParcelService.update_parcel(parcel_id, reference,  status)
+    ParcelService.update_parcel(id, description,  status)
     
     flash('Parcel updated successfully!')
-    return render_template('new_parcel.html')
-=======
     return redirect(url_for('parcel.list_parcels'))
->>>>>>> 13b85523c13be008ba3b7d2c701dfd01131f5efd

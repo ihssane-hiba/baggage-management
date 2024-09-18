@@ -66,7 +66,7 @@
 <body>
     <div class="form-container">
         <h2>Enregistrement de Colis</h2>
-        <form action="{{ url_for('parcel.create') }}" method="POST">
+        <form action="{{ url_for('parcel.create_parcel') }}" method="POST">
             <div class="form-group">
                 <label for="reference">Référence:</label>
                 <input type="text" id="reference" name="reference" required>
@@ -85,10 +85,6 @@
                     <option value="Retardée">Retardée</option>
                     <option value="En Attente">En Attente</option>
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="date_enregistrement">Date d'Enregistrement:</label>
-                <input type="datetime-local" id="date_enregistrement" name="date_enregistrement" required>
             </div>
             <div class="form-group">
                 <label for="nom">Nom:</label>

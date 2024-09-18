@@ -7,9 +7,11 @@
 </head>
 <body>
     <h1>Edit Parcel</h1>
-    <form method="POST" action="{{ url_for('parcel.update_parcel', parcel_id=parcel_id) }}">
+    <form method="POST" action="{{ url_for('parcel.update_parcel', parcel_id=parcel.id) }}">
+        <input type="hidden" name="id" value="{{ parcel.id }}">
+
         <label for="reference">Reference:</label>
-        <input type="text" name="reference" value="{{ parcel.reference }}" required>
+        <input type="text" name="reference" value="{{ parcel.reference }}" required desabled>
         
         <label for="description">Description:</label>
         <input type="text" name="description" value="{{ parcel.description }}" required>
@@ -20,6 +22,6 @@
         <button type="submit">Update Parcel</button>
     </form>
     
-    <a href="{{ url_for('list_parcels') }}">Back to List</a>
+    <a href="{{ url_for('parcel.list_parcels') }}">Back to List</a>
 </body>
 </html>

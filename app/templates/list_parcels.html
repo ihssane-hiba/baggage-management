@@ -55,6 +55,7 @@
                 <td>{{ parcel.description }}</td>
                 <td>{{ parcel.status }}</td>
                 <td>{{ parcel.date_enregistrement.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <td>
                 <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">Edit</a>
                     <form action="{{ url_for('parcel.delete_parcel') }}" method="post" style="display:inline;">
                         <input type="hidden" name="parcel_id" value="{{ parcel.id }}">
@@ -68,7 +69,7 @@
     </table>
 
     <a href="{{ url_for('parcel.new_parcel') }}">Add New Parcel</a>
-    <a href="">Report Lost Item</a>
+    <a href="{{ url_for('parcel.report_lost') }}">Report Lost Item</a>
 
 </body>
 </html>

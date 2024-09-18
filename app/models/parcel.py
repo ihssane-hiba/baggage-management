@@ -14,7 +14,7 @@ class Parcel(db.Model):
     societe_transport = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(150), nullable=False)
     description = db.Column(db.Text, nullable=True)
-    status = db.Column(db.Enum('Annulée', 'Envoyée', 'Rapportée', 'Retardée', 'En Attente'), nullable=False)
+    status = db.Column(db.Enum('Annulée', 'Envoyée', 'Rapportée', 'Retardée', 'En Attente', 'lost'), nullable=False)
     date_enregistrement = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
