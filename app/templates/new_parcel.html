@@ -1,53 +1,113 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-    <title>Create a New Parcel</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'enregistrement de colis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Header -->
-        <header id="header">
-            <h1>Create a New Parcel</h1>
-        </header>
-
-        <!-- Main -->
-        <div id="main">
-            <article>
-                <h2>New Parcel Form</h2>
-                <form method="POST" action="{{ url_for('parcel.create_parcel') }}">
-                    <div class="fields">
-                        <div class="reference">
-                            <label for="reference">reference</label>
-                            <input type="text" name="reference" id="reference" required />
-                        </div>
-                        <div class="description">
-                            <label for="description">description</label>
-                            <input type="text" name="description" id="description" required />
-                        </div>
-                        <div class="status">
-                            <label for="status">status</label>
-                            <input type="text" name="status" id="status" required />
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Create Parcel" class="primary" /></li>
-                    </ul>
-                </form>
-            </article>
-        </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <p>&copy; Parcel Management. All rights reserved.</p>
-        </footer>
-
+    <div class="form-container">
+        <h2>Enregistrement de Colis</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+                <label for="type-colis">Type de Colis:</label>
+                <select id="type-colis" name="type-colis" required>
+                    <option value="">Sélectionner le type</option>
+                    <option value="Document">Document</option>
+                    <option value="Paquet">Paquet</option>
+                    <option value="Fragile">Fragile</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date-envoi">Date d'Envoi:</label>
+                <input type="date" id="date-envoi" name="date-envoi" required>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+            </div>
+            <div class="form-group">
+                <label for="societe-transport">Société de Transport:</label>
+                <input type="text" id="societe-transport" name="societe-transport" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Électronique:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Soumettre</button>
+            </div>
+        </form>
     </div>
-
 </body>
 </html>
