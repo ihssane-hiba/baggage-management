@@ -1,1 +1,8 @@
-Commande ECHO d‚sactiv‚e.
+Flask
+Flask-SQLAlchemy
+psycopg2  
+mysql-connector-python
+Werkzeug
+Flask-Mail
+python-dotenv
+pymysql

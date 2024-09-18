@@ -1,1 +1,1 @@
-Commande ECHO d‚sactiv‚e.
+from .db_setup import setup_database
