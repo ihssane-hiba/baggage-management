@@ -3,41 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire d'enregistrement de colis</title>
+    <title>Formulaire d'Enregistrement de Colis</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://3.imimg.com/data3/TO/JH/MY-4660476/forwarding-service-250x250.jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
 
         .form-container {
-            background-color: rgba(255, 255, 255, 0.85); /* Transparence pour le fond */
+            background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 320px; /* Taille plus petite pour le formulaire */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
             max-width: 100%;
         }
 
         h2 {
+            margin-bottom: 20px;
             text-align: center;
-            margin-bottom: 15px;
         }
 
         .form-group {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         label {
@@ -46,10 +39,10 @@
             margin-bottom: 5px;
         }
 
-        input, select, textarea {
+        input, select {
             width: 100%;
-            padding: 8px;
-            font-size: 14px;
+            padding: 10px;
+            font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
@@ -59,7 +52,7 @@
             padding: 10px;
             background-color: #28a745;
             color: white;
-            font-size: 14px;
+            font-size: 16px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -73,47 +66,14 @@
 <body>
     <div class="form-container">
         <h2>Enregistrement de Colis</h2>
-        <form action="/submit" method="POST">  <!-- Modifié pour soumettre au backend Flask -->
+        <form action="{{ url_for('submit_parcel') }}" method="POST">
             <div class="form-group">
                 <label for="reference">Référence:</label>
                 <input type="text" id="reference" name="reference" required>
             </div>
             <div class="form-group">
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" required>
-            </div>
-            <div class="form-group">
-                <label for="prenom">Prénom:</label>
-                <input type="text" id="prenom" name="prenom" required>
-            </div>
-            <div class="form-group">
-                <label for="type-colis">Type de Colis:</label>
-                <select id="type-colis" name="type-colis" required>
-                    <option value="">Sélectionner le type</option>
-                    <option value="Document">Document</option>
-                    <option value="Paquet">Paquet</option>
-                    <option value="Fragile">Fragile</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="date-envoi">Date d'Envoi:</label>
-                <input type="date" id="date-envoi" name="date-envoi" required>
-            </div>
-            <div class="form-group">
-                <label for="destination">Destination:</label>
-                <input type="text" id="destination" name="destination" required>
-            </div>
-            <div class="form-group">
-                <label for="societe-transport">Société de Transport:</label>
-                <input type="text" id="societe-transport" name="societe-transport" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Électronique:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
                 <label for="description">Description:</label>
-                <textarea id="description" name="description" rows="3"></textarea>
+                <input type="text" id="description" name="description">
             </div>
             <div class="form-group">
                 <label for="status">Statut:</label>
@@ -127,8 +87,38 @@
                 </select>
             </div>
             <div class="form-group">
-                <button type="submit">Soumettre</button>
+                <label for="date_enregistrement">Date d'Enregistrement:</label>
+                <input type="datetime-local" id="date_enregistrement" name="date_enregistrement" required>
             </div>
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom:</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+                <label for="type_colis">Type de Colis:</label>
+                <input type="text" id="type_colis" name="type_colis" required>
+            </div>
+            <div class="form-group">
+                <label for="date_envoi">Date d'Envoi:</label>
+                <input type="date" id="date_envoi" name="date_envoi" required>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <input type="text" id="destination" name="destination" required>
+            </div>
+            <div class="form-group">
+                <label for="societe_transport">Société de Transport:</label>
+                <input type="text" id="societe_transport" name="societe_transport" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Électronique:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit">Soumettre</button>
         </form>
     </div>
 </body>

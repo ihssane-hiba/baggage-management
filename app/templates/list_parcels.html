@@ -44,7 +44,7 @@
                 <th>Reference</th>
                 <th>Description</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Date of Registration</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -54,10 +54,10 @@
                 <td>{{ parcel.reference }}</td>
                 <td>{{ parcel.description }}</td>
                 <td>{{ parcel.status }}</td>
-                <td>{{ parcel.date_enregistrement }}</td>
+                <td>{{ parcel.date_enregistrement.strftime('%Y-%m-%d %H:%M:%S') }}</td>
                 <td>
-                    <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">Edit</a>
-                    <form action="{{ url_for('parcel.delete_parcel') }}" method="post" style="display:inline;">
+                    <a href="{{ url_for('edit_parcel', parcel_id=parcel.id) }}">Edit</a>
+                    <form action="{{ url_for('delete_parcel') }}" method="post" style="display:inline;">
                         <input type="hidden" name="parcel_id" value="{{ parcel.id }}">
                         <button type="submit">Delete</button>
                     </form>
@@ -67,8 +67,8 @@
         </tbody>
     </table>
 
-    <a href="{{ url_for('parcel.new_parcel') }}">Add New Parcel</a>
-    <a href="">Report Lost Item</a>
+    <a href="{{ url_for('new_parcel') }}">Add New Parcel</a>
+    <a href="{{ url_for('report_lost_item') }}">Report Lost Item</a>
 
 </body>
 </html>
