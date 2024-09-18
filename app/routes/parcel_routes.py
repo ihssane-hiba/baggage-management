@@ -61,7 +61,7 @@ def create_parcel():
     )
 
     flash('Parcel created successfully!')
-    return list_parcels()
+    return redirect(url_for('parcel.list_parcels'))
 
 @parcel_bp.route('/report_lost')
 def report_lost():
