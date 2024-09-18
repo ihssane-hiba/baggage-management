@@ -66,7 +66,7 @@
 <body>
     <div class="form-container">
         <h2>Enregistrement de Colis</h2>
-        <form action="{{ url_for('submit_parcel') }}" method="POST">
+        <form action="{{ url_for('create_parcel.parcel') }}" method="POST">
             <div class="form-group">
                 <label for="reference">Référence:</label>
                 <input type="text" id="reference" name="reference" required>
