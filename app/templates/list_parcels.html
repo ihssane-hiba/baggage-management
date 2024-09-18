@@ -44,7 +44,7 @@
                 <th>Reference</th>
                 <th>Description</th>
                 <th>Status</th>
-                <th>Date</th>
+                <th>Date of Registration</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -54,14 +54,14 @@
                 <td>{{ parcel.reference }}</td>
                 <td>{{ parcel.description }}</td>
                 <td>{{ parcel.status }}</td>
-                <td>{{ parcel.date_enregistrement }}</td>
-                <td>
-                    <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">Edit</a>
+                <td>{{ parcel.date_enregistrement.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">Edit</a>
                     <form action="{{ url_for('parcel.delete_parcel') }}" method="post" style="display:inline;">
                         <input type="hidden" name="parcel_id" value="{{ parcel.id }}">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
+            </tr>
             </tr>
             {% endfor %}
         </tbody>
