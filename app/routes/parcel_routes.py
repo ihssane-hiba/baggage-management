@@ -38,3 +38,30 @@ def create_parcel():
 
     flash('Parcel created successfully!')
     return list_parcels()
+
+@parcel_bp.route('/report_lost')
+def report_lost():
+    print('Report lost item form')
+    return render_template('report_lost.html')
+
+@parcel_bp.route('/submit_lost', methods=['POST'])
+def submit_lost():
+    reference = request.form['reference']
+    
+    
+    # Assuming there's a method in ParcelService to handle lost items
+    ParcelService.report_lost_item(reference )
+    
+    flash('Lost item reported successfully!')
+    return render_template('report_lost.html')
+
+@parcel_bp.route('/update_parcel/<int:parcel_id>', methods=['POST'])
+def update_parcel(parcel_id):
+    reference = request.form['reference']
+    status = request.form['status']
+    
+    # Update parcel details in the ParcelService
+    ParcelService.update_parcel(parcel_id, reference,  status)
+    
+    flash('Parcel updated successfully!')
+    return render_template('new_parcel.html')

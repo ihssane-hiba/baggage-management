@@ -24,3 +24,20 @@ class ParcelService:
         parcel = Parcel.query.get(parcel_id)
         db.session.delete(parcel)
         db.session.commit()
+
+
+    @staticmethod
+    def report_lost_item(reference):
+        parcel = Parcel.query.filter_by(reference=reference).first()
+        if parcel:
+            parcel.status = 'lost'
+            db.session.commit()
+            return f"Le colis avec la référence {reference} a été déclaré perdu."
+        else:
+            return f"Aucun colis trouvé avec la référence {reference}."    
+
+
+   
+    
+
+
