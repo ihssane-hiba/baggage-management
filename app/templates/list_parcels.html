@@ -5,34 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Parcels</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
+            padding: 12px 15px;
             text-align: left;
         }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr {
+            transition: all 0.2s ease-in;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
         a {
             text-decoration: none;
             color: #007bff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #007bff;
+            transition: all 0.3s ease;
         }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
         button {
             background-color: #dc3545;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 12px;
+            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #c82333;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .actions a, .actions button {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .actions a:hover, .actions button:hover {
+            transform: scale(1.05);
+        }
+
+        a.add-new, a.report-lost {
+            display: inline-block;
+            margin: 20px 10px;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        a.add-new:hover {
+            background-color: #218838;
+        }
+
+        a.report-lost {
+            background-color: #ffca2c;
+        }
+
+        a.report-lost:hover {
+            background-color: #e0a800;
         }
     </style>
 </head>
@@ -55,21 +138,21 @@
                 <td>{{ parcel.description }}</td>
                 <td>{{ parcel.status }}</td>
                 <td>{{ parcel.date_enregistrement.strftime('%Y-%m-%d %H:%M:%S') }}</td>
-                <td>
-                <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">Edit</a>
+                <td class="actions">
+                    <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">
+                        <i class="fa fa-edit"></i> Edit
+                    </a>
                     <form action="{{ url_for('parcel.delete_parcel') }}" method="post" style="display:inline;">
                         <input type="hidden" name="parcel_id" value="{{ parcel.id }}">
-                        <button type="submit">Delete</button>
+                        <button type="submit"><i class="fa fa-trash"></i> Delete</button>
                     </form>
                 </td>
-            </tr>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ url_for('parcel.new_parcel') }}">Add New Parcel</a>
-    <a href="{{ url_for('parcel.report_lost') }}">Report Lost Item</a>
-
+    <a href="{{ url_for('parcel.new_parcel') }}" class="add-new">Add New Parcel</a>
+    <a href="{{ url_for('parcel.report_lost') }}" class="report-lost">Report Lost Item</a>
 </body>
 </html>
