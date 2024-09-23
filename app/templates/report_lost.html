@@ -8,76 +8,89 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
+        background-color: #f4f4f4;
         margin: 0;
+        padding: 20px; /* Added padding for space around the entire body */
     }
 
     h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 24px;
-        }
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
 
-    form {
-        background-color: #fff;
-        padding: 20px;
+    .form {
+        max-width: 500px;
+        margin: 50px auto;
+        background-color: white;
+        padding: 30px;
         border-radius: 10px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
     }
 
     label {
         display: block;
         margin-bottom: 8px;
         font-weight: bold;
-        color: #555;
     }
 
-    input[type="text"] {
+    input[type="text"],
+    input[type="hidden"] {
         width: 100%;
         padding: 10px;
-        margin-bottom: 20px; /* Espace sous chaque champ de saisie */
+        margin-bottom: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
         box-sizing: border-box;
     }
 
     button {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
+        background-color: #007bff;
         color: white;
+        padding: 10px 20px;
         border: none;
         border-radius: 5px;
-        font-size: 16px;
         cursor: pointer;
-        margin-top: 10px; /* Espace au-dessus du bouton */
+        width: auto;
+        display: block;
+        margin: 0 auto;
     }
 
     button:hover {
-        background-color: #45a049;
+        background-color: #0056b3;
     }
 
-    a {
+    .back-link {
         display: block;
         text-align: center;
-        margin-top: 20px; /* Espace au-dessus du lien */
-        color: #333;
+        margin-top: 20px;
+        color: #007bff;
         text-decoration: none;
     }
 
-    a:hover {
-        text-decoration: underline;
+    .back-link:hover {
+        color: #0056b3;
     }
+    a {
+            color: blue; /* Couleur du lien */
+            text-decoration: none; /* Retire le soulignement */
+            font-weight: bold; /* Texte en gras */
+        }
+
+        /* Lorsqu'on passe la souris sur le lien */
+        a:hover {
+            color: red; /* Change la couleur au survol */
+            text-decoration: underline; /* Ajoute un soulignement au survol */
+        }
+
+        /* Lorsque le lien est cliqué (active) */
+        a:active {
+            color: green; /* Change la couleur lors du clic */
+        }
 </style>
+
 <body>
-    <h1>Report Lost Item</h1><br><br>
+    <h1>Report Lost Item</h1>
     <form method="POST" action="{{ url_for('parcel.submit_lost') }}">
         <label for="reference">Reference:</label>
         <input type="text" name="reference" required>
@@ -88,6 +101,6 @@
         <button type="submit">Submit Lost Item</button>
     </form>
     
-    <a href="{{ url_for('parcel.list_parcels') }}">Back to List</a><br><br>
+    <a href="{{ url_for('parcel.list_parcels') }}">Back to List</a>
 </body>
 </html>
