@@ -6,7 +6,7 @@
     <title>Formulaire d'Enregistrement de Colis</title>
     <style>
         body {
-            background-image: url('/static/images/img1.jpg');
+            background-image: url("{{ url_for('static', filename='images/img1.jpg') }}");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
