@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Parcel</title>
+    <title>Ajouter Colis</title>
 </head>
 <style>
     body {
@@ -89,7 +89,7 @@
         }
 </style>
 <body>
-    <h1>Edit Parcel</h1>
+    <h1>Ajouter Colis</h1>
     <form method="POST" action="{{ url_for('parcel.update_parcel', parcel_id=parcel.id) }}">
         <input type="hidden" name="id" value="{{ parcel.id }}">
 
@@ -102,9 +102,9 @@
         <label for="status">Status:</label>
         <input type="text" name="status" value="{{ parcel.status }}" required>
     
-        <button type="submit">Update Parcel</button>
+        <button type="submit">Mettre à jour le colis</button>
     </form>
     
-    <a href="{{ url_for('parcel.list_parcels') }}">Back to List</a>
+    <a href="{{ url_for('parcel.list_parcels') }}">Retour à la liste</a>
 </body>
 </html>
