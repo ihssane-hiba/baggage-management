@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List of Parcels</title>
+    <title>La liste des colis</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,14 +120,14 @@
     </style>
 </head>
 <body>
-    <h1>List of Parcels</h1>
+    <h1>La liste des colis</h1>
     <table>
         <thead>
             <tr>
                 <th>Reference</th>
                 <th>Description</th>
                 <th>Status</th>
-                <th>Date of Registration</th>
+                <th>Date d'enregistrement</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -144,7 +144,7 @@
                     </a>
                     <form action="{{ url_for('parcel.delete_parcel') }}" method="post" style="display:inline;">
                         <input type="hidden" name="parcel_id" value="{{ parcel.id }}">
-                        <button type="submit"><i class="fa fa-trash"></i> Delete</button>
+                        <button type="submit"><i class="fa fa-trash"></i> Supprimer</button>
                     </form>
                 </td>
             </tr>
@@ -152,7 +152,7 @@
         </tbody>
     </table>
 
-    <a href="{{ url_for('parcel.new_parcel') }}" class="add-new">Add New Parcel</a>
-    <a href="{{ url_for('parcel.report_lost') }}" class="report-lost">Report Lost Item</a>
+    <a href="{{ url_for('parcel.new_parcel') }}" class="add-new">Ajouter un nouveau colis</a>
+    <a href="{{ url_for('parcel.report_lost') }}" class="report-lost">Signaler un article perdu</a>
 </body>
 </html>
