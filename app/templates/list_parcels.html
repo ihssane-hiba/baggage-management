@@ -140,7 +140,7 @@
                 <td>{{ parcel.date_enregistrement.strftime('%Y-%m-%d %H:%M:%S') }}</td>
                 <td class="actions">
                     <a href="{{ url_for('parcel.edit_parcel', parcel_id=parcel.id) }}">
-                        <i class="fa fa-edit"></i> Edit
+                        <i class="fa fa-edit"></i> Modifier
                     </a>
                     <form action="{{ url_for('parcel.delete_parcel') }}" method="post" style="display:inline;">
                         <input type="hidden" name="parcel_id" value="{{ parcel.id }}">
